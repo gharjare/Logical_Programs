@@ -5,24 +5,21 @@
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to logical programs");
-            int sum = 0;
             Console.WriteLine("Enter the number");
             int num = Convert.ToInt32(Console.ReadLine());
-            for (int i = 1; i < num; i++)
+            bool IsPrime = true;
+            for (int i = 2; i < num / 2; i++)
             {
                 if (num % i == 0)
                 {
-                    sum = sum + i;
+                    IsPrime = false;
+                    Console.WriteLine("Is not prime");
+                    break;
                 }
             }
-
-            if (sum == num)
+            if (IsPrime)
             {
-                Console.WriteLine("{0} Number is pefect", num);
-            }
-            else
-            {
-                Console.WriteLine("{0} Number is not perfect", num);
+                Console.WriteLine("Prime Number");
             }
         }
     }
