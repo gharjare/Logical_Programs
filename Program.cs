@@ -5,16 +5,24 @@
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to logical programs");
-            int a = 0, b = 1, c;
-            Console.WriteLine(a);
-            Console.WriteLine(b);
-            for (int i = 0; i < 10; i++)
+            int sum = 0;
+            Console.WriteLine("Enter the number");
+            int num = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i < num; i++)
             {
-                c = a + b;
-                a = b;
-                b = c;
+                if (num % i == 0)
+                {
+                    sum = sum + i;
+                }
+            }
 
-                Console.WriteLine(c);
+            if (sum == num)
+            {
+                Console.WriteLine("{0} Number is pefect", num);
+            }
+            else
+            {
+                Console.WriteLine("{0} Number is not perfect", num);
             }
         }
     }
