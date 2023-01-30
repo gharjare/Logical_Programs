@@ -5,19 +5,27 @@
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to logical programs");
-            int num, rem, reverse = 0;
+            int distinct = 0;
+            int count = 0;
 
-            Console.WriteLine("Enter the number");
-            num = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the number of given distinct coupon:");
+            int couponNo = Convert.ToInt32(Console.ReadLine());
+            bool[] iscollected = new bool[couponNo];
 
-            while (num != 0)
+            while (distinct < couponNo)
             {
-                rem = num % 10;
-                reverse = reverse * 10 + rem;
-                num = num / 10;
+                Random random = new Random();
+                int newCoupon = (int)(random.NextDouble() * couponNo);
+                count++;
+
+                if (!iscollected[newCoupon])
+                {
+                    distinct++;
+                    iscollected[newCoupon] = true;
+
+                }
             }
-            Console.WriteLine("Reverse number " + reverse);
+            Console.WriteLine("Total random number needed to have all distinct coupon: " + count);
         }
-    }
     }
 }
