@@ -1,31 +1,24 @@
-﻿namespace LogicalPrograms
+﻿using System.Diagnostics;
+
+namespace LogicalPrograms
 {
     class program
     {
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to logical programs");
-            int distinct = 0;
-            int count = 0;
-
-            Console.WriteLine("Enter the number of given distinct coupon:");
-            int couponNo = Convert.ToInt32(Console.ReadLine());
-            bool[] iscollected = new bool[couponNo];
-
-            while (distinct < couponNo)
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            for (int i = 0; i < 1000; i++)
             {
-                Random random = new Random();
-                int newCoupon = (int)(random.NextDouble() * couponNo);
-                count++;
-
-                if (!iscollected[newCoupon])
-                {
-                    distinct++;
-                    iscollected[newCoupon] = true;
-
-                }
+                Console.WriteLine("HI");
             }
-            Console.WriteLine("Total random number needed to have all distinct coupon: " + count);
+
+            stopwatch.Stop();
+            Console.WriteLine("Time Elapsed : {0}",
+                stopwatch.Elapsed);
+            Console.ReadLine();
+
         }
     }
 }
